@@ -36,7 +36,7 @@ st.title("AI Assisted Customer Support")
 query = st.text_input("Inbound query:", key="query")
 
 #load the created vector DB and the dataset for the RAG
-index = faiss.read_index('vector_store/faiss_index.index')
+index = faiss.read_index('vector_store/faiss_index.index', faiss.IO_FLAG_MMAP)
 df = pd.read_csv('Customer_Support_Training_Dataset/Customer_Support_Training_Dataset.csv')
 
 if st.button("Get response from internal dataset and Run LLM"):
